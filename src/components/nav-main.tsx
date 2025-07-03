@@ -59,9 +59,15 @@ export function NavMain({
                     {item.items.map((subItem) => (
                       <SidebarMenuSubItem key={subItem.title}>
                         <SidebarMenuSubButton asChild>
-                          <a href={subItem.url}>
+                          <button
+                            onClick={() => {
+                              window.history.pushState(null, '', subItem.url)
+                              window.dispatchEvent(new PopStateEvent('popstate'))
+                            }}
+                            className="w-full text-left"
+                          >
                             <span>{subItem.title}</span>
-                          </a>
+                          </button>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
                     ))}
@@ -72,10 +78,16 @@ export function NavMain({
           ) : (
             <SidebarMenuItem key={item.title}>
               <SidebarMenuButton asChild tooltip={item.title}>
-                <a href={item.url} className="flex items-center gap-2 w-full">
+                <button 
+                  onClick={() => {
+                    window.history.pushState(null, '', item.url)
+                    window.dispatchEvent(new PopStateEvent('popstate'))
+                  }}
+                  className="flex items-center gap-2 w-full text-left"
+                >
                   {item.icon && <item.icon />}
                   <span>{item.title}</span>
-                </a>
+                </button>
               </SidebarMenuButton>
             </SidebarMenuItem>
           )

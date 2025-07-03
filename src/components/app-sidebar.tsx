@@ -1,17 +1,14 @@
 "use client"
 
 import * as React from "react"
+import { usePathname } from "next/navigation"
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  GalleryVerticalEnd,
-  Map,
-  PieChart,
-  Settings2,
   SquareTerminal,
+  Bot,
+  Settings2,
+  ImageIcon,
+  CreditCardIcon,
+  GalleryVerticalEnd,
 } from "lucide-react"
 
 import { NavMain } from "@/components/nav-main"
@@ -26,7 +23,7 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 
-// This is sample data.
+
 const data = {
   user: {
     name: "shadcn",
@@ -35,69 +32,49 @@ const data = {
   },
   teams: [
     {
-      name: "Acme Inc",
+      name: "TwinkleFace",
       logo: GalleryVerticalEnd,
-      plan: "Enterprise",
-    },
-    {
-      name: "Acme Corp.",
-      logo: AudioWaveform,
-      plan: "Startup",
-    },
-    {
-      name: "Evil Corp.",
-      logo: Command,
-      plan: "Free",
+      plan: "Creator",
     },
   ],
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/",
       icon: SquareTerminal,
       isActive: true,
-
     },
     {
-      title: "Models",
+      title: "Styles",
       url: "#",
       icon: Bot,
       items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
+        { title: "Portraits", url: "/styles/portraits" },
+        { title: "Anime", url: "/styles/anime" },
+        { title: "3D Avatars", url: "/styles/3d-avatars" },
+        { title: "Professional", url: "/styles/professional" },
+        { title: "Cartoon", url: "/styles/cartoon" },
+        { title: "Abstract", url: "/styles/abstract" },
       ],
     },
     {
-      title: "Documentation",
+      title: "My Creations",
       url: "#",
-      icon: BookOpen,
+      icon: ImageIcon, // use appropriate icon
       items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
-        },
+        { title: "All Images", url: "/creations" },
+        { title: "Favorites", url: "/creations/favorites" },
+        { title: "History", url: "/creations/history" },
+      ],
+    },
+    {
+      title: "Credits",
+      url: "#",
+      icon: CreditCardIcon, // use appropriate icon
+      items: [
+        { title: "Buy Credits", url: "/credits/buy" },
+        { title: "Usage", url: "/credits/usage" },
+        { title: "Plans", url: "/credits/plans" },
       ],
     },
     {
@@ -105,52 +82,44 @@ const data = {
       url: "#",
       icon: Settings2,
       items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
+        { title: "Profile", url: "/settings/profile" },
+        { title: "Upload Preferences", url: "/settings/upload" },
+        { title: "Notifications", url: "/settings/notifications" },
       ],
     },
   ],
-  projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
-  ],
+  projects: [],
 }
 
+
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname()
+
+  // Update navigation items based on current route
+  const navItemsWithActiveState = data.navMain.map(item => {
+    if (item.items) {
+      // Check if any sub-item matches current path
+      const hasActiveSubItem = item.items.some(subItem => pathname === subItem.url)
+      return {
+        ...item,
+        isActive: hasActiveSubItem
+      }
+    } else {
+      // For items without sub-items, check direct match
+      return {
+        ...item,
+        isActive: pathname === item.url
+      }
+    }
+  })
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
         <TeamSwitcher teams={data.teams} />
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={navItemsWithActiveState} />
         <NavProjects projects={data.projects} />
       </SidebarContent>
       <SidebarFooter>
