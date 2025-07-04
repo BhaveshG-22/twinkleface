@@ -36,8 +36,8 @@ export function InfiniteSlider({
     let controls;
     const size = direction === 'horizontal' ? width : height;
     const contentSize = size + gap;
-    const from = reverse ? -contentSize / 2 : 0;
-    const to = reverse ? 0 : -contentSize / 2;
+    const from = reverse ? -contentSize : 0;
+    const to = reverse ? 0 : -contentSize;
  
     if (isTransitioning) {
       controls = animate(translation, [translation.get(), to], {
@@ -104,6 +104,10 @@ export function InfiniteSlider({
         ref={ref}
         {...hoverProps}
       >
+        {children}
+        {children}
+        {children}
+        {children}
         {children}
         {children}
       </motion.div>

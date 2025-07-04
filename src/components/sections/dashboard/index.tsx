@@ -318,7 +318,7 @@ export default function DashboardContent({ isCollapsed = false }: DashboardConte
         </div>
 
         {/* Infinite Masonry Grid */}
-        <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-5 xl:columns-6 gap-4 space-y-4 w-full">
+        <div className="columns-2 sm:columns-3 md:columns-4 lg:columns-4 gap-4 space-y-4 w-full">
           {allStyles.map((style, index) => (
             <div
               key={style.id}
@@ -370,7 +370,7 @@ export default function DashboardContent({ isCollapsed = false }: DashboardConte
                 <div className="absolute bottom-3 left-3 right-3 transform transition-all duration-300 group-hover:bottom-4">
                   <h3 className="text-white font-bold text-sm drop-shadow-lg transition-all duration-300 group-hover:text-lg group-hover:drop-shadow-2xl">{style.title}</h3>
                   <div className="h-0 group-hover:h-4 transition-all duration-300 overflow-hidden">
-                    <p className="text-white/70 text-xs mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Click to transform your photo</p>
+                    <p className="text-white/70 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">Click to transform your photo</p>
                   </div>
                 </div>
 
