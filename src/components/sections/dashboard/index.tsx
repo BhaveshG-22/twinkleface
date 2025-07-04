@@ -127,6 +127,8 @@ const StyleCarousel = ({ style, isHovered, index: cardIndex, cardHeight }: Style
       <Image
         src={isHovered ? style.variations[currentIndex] : style.image}
         alt={style.title}
+        width={400}
+        height={600}
         className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:brightness-110"
         loading={cardIndex < 20 ? "eager" : "lazy"}
       />
