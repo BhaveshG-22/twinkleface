@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 interface PortraitsContentProps {
@@ -183,9 +184,11 @@ export default function PortraitsContent({ isCollapsed = false }: PortraitsConte
 
                   {/* Preview Image */}
                   <div className="relative h-[32rem] overflow-hidden">
-                    <img
-                      src={prompt.preview}
+                    <Image
+                      src={prompt.preview || ''}
                       alt={prompt.title}
+                      width={400}
+                      height={500}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     />
 

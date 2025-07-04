@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
 import { Compare } from '@/components/ui/compare'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
 // Custom CSS for hiding compare slider until hover
@@ -264,9 +265,11 @@ export default function AbstractContent({ isCollapsed = false }: AbstractContent
                       {/* Compare Component for Before/After */}
                       <div className="relative aspect-[3/4] overflow-hidden compare-hover-slider">
                         {/* Default: Show after image only */}
-                        <img 
-                          src={prompt.afterImage || prompt.preview}
+                        <Image 
+                          src={prompt.afterImage || prompt.preview || ''}
                           alt={`${prompt.title} - After`}
+                          width={400}
+                          height={500}
                           className="w-full h-full object-cover transition-opacity duration-300"
                         />
                         
@@ -295,9 +298,11 @@ export default function AbstractContent({ isCollapsed = false }: AbstractContent
                       
                       {/* Preview Image */}
                       <div className="relative aspect-[3/4] overflow-hidden">
-                        <img 
-                          src={prompt.preview} 
+                        <Image 
+                          src={prompt.preview || ''} 
                           alt={prompt.title}
+                          width={400}
+                          height={500}
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                         

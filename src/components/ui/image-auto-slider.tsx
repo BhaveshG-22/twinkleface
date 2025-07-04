@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export const Component = () => {
   // Portrait images for the infinite scroll - better suited for TwinkleFace
@@ -72,9 +73,11 @@ export const Component = () => {
                 key={index}
                 className="image-item flex-shrink-0 w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-xl overflow-hidden shadow-2xl"
               >
-                <img
+                <Image
                   src={image}
                   alt={`Portrait style ${(index % images.length) + 1}`}
+                  width={320}
+                  height={320}
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

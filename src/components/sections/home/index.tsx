@@ -29,9 +29,11 @@ const StyleCarousel = ({ style, isHovered, index, cardHeight }: {
   return (
     <div className={`relative ${cardHeight} w-full overflow-hidden bg-gray-900`}>
       {/* Main portrait image */}
-      <img
+      <Image
         src={style.image}
         alt={style.title}
+        width={400}
+        height={500}
         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
         loading="lazy"
       />
@@ -44,10 +46,12 @@ const StyleCarousel = ({ style, isHovered, index, cardHeight }: {
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <div className="grid grid-cols-2 h-full gap-1 p-1">
             {style.variations.slice(0, 4).map((variation: string, idx: number) => (
-              <img
+              <Image
                 key={idx}
                 src={variation}
                 alt={`${style.title} variation ${idx + 1}`}
+                width={200}
+                height={250}
                 className="w-full h-full object-cover rounded-sm"
                 loading="lazy"
               />
@@ -354,9 +358,11 @@ const InfiniteCarousel = ({ images, direction = 'left', speed = 60 }: {
             key={index}
             className="flex-shrink-0 w-48 h-64 rounded-2xl overflow-hidden relative group"
           >
-            <img
+            <Image
               src={image}
               alt={`Carousel image ${index}`}
+              width={192}
+              height={256}
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -619,9 +625,11 @@ const HeroInfiniteSliderBg = () => {
                       key={`${sectionIdx}-${image.id}`}
                       className="w-full h-full overflow-hidden"
                     >
-                      <img
+                      <Image
                         src={image.src}
                         alt={image.alt}
+                        width={100}
+                        height={120}
                         className="w-full h-full object-cover rounded-sm opacity-90"
                         loading="lazy"
                       />
@@ -671,9 +679,11 @@ const HeroInfiniteSliderBg = () => {
                   key={`mobile-row-${rowIdx}-img-${imgIdx}`}
                   className="flex-shrink-0 w-20 h-28 sm:w-24 sm:h-32 overflow-hidden rounded-xl shadow-sm"
                 >
-                  <img
+                  <Image
                     src={image.src}
                     alt={image.alt}
+                    width={80}
+                    height={112}
                     className="w-full h-full object-cover opacity-50"
                     loading="lazy"
                   />
@@ -685,9 +695,11 @@ const HeroInfiniteSliderBg = () => {
                   key={`mobile-row-${rowIdx}-img-dup-${imgIdx}`}
                   className="flex-shrink-0 w-20 h-28 sm:w-24 sm:h-32 overflow-hidden rounded-xl shadow-sm"
                 >
-                  <img
+                  <Image
                     src={image.src}
                     alt={image.alt}
+                    width={80}
+                    height={112}
                     className="w-full h-full object-cover opacity-50"
                     loading="lazy"
                   />
@@ -769,9 +781,11 @@ const InfiniteMasonryGrid = ({ items }: { items: MasonryItem[] }) => {
                     className="group relative overflow-hidden rounded-2xl bg-gray-800/30 backdrop-blur-sm border border-gray-700/30 hover:border-purple-500/50 transition-all duration-300"
                     style={{ height: `${item.height}px` }}
                   >
-                    <img
+                    <Image
                       src={item.src}
                       alt={item.title}
+                      width={400}
+                      height={500}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
 
@@ -917,9 +931,11 @@ export default function HomeContent({ isCollapsed = false }: HomeContentProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center gap-2">
-              <img
+              <Image
                 src="/pixleGlowLogo.png"
                 alt="TwinkleFace Logo"
+                width={32}
+                height={32}
                 className="w-8 h-8 object-contain scale-125"
               />
               <span className="text-xl font-bold text-white">TwinkleFace</span>
@@ -1265,9 +1281,11 @@ export default function HomeContent({ isCollapsed = false }: HomeContentProps) {
 
                   {/* User Info */}
                   <div className="flex items-center justify-center gap-4">
-                    <img
+                    <Image
                       src={TESTIMONIALS[currentTestimonial].avatar}
                       alt={TESTIMONIALS[currentTestimonial].name}
+                      width={48}
+                      height={48}
                       className="w-12 h-12 rounded-full border-2 border-purple-500/50"
                     />
                     <div className="text-left">

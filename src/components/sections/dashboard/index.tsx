@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import EmblaCarousel from '@/components/ui/embla-carousel'
 import { useState, useEffect } from 'react'
+import Image from 'next/image'
 
 // Define types for the component
 interface StyleType {
@@ -123,7 +124,7 @@ const StyleCarousel = ({ style, isHovered, index: cardIndex, cardHeight }: Style
 
   return (
     <div className="relative w-full h-full">
-      <img
+      <Image
         src={isHovered ? style.variations[currentIndex] : style.image}
         alt={style.title}
         className="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-125 group-hover:brightness-110"
