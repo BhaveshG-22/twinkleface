@@ -751,7 +751,7 @@ export default function HomeContent(): React.ReactElement {
         {/* Full-width Masonry Grid - Edge to Edge */}
         <div className="w-full px-2 pt-8">
           <div className="columns-2 sm:columns-3 md:columns-5 lg:columns-6 gap-3">
-            {allStyles.slice(0, 30).map((style, index) => {
+            {allStyles.slice(0, 30).map((style) => {
               return (
                 <div
                   key={style.id}
