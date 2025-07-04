@@ -85,7 +85,7 @@ const MASONRY_IMAGES = [
     style: "Surreal Portrait"
   },
   {
-    src: "https://images.unsplash.com/photo-1494790108755-2616c5e2d4d2?w=400&h=700&fit=crop",
+    src: "https://cdn.pixabay.com/photo/2018/01/03/19/54/fashion-3059143_1280.jpg?w=400&h=700&fit=crop",
     height: 350,
     category: "3D",
     title: "3D Character",
@@ -164,7 +164,7 @@ const BEFORE_AFTER_EXAMPLES = [
   },
   {
     title: "3D Character Models",
-    before: "https://images.unsplash.com/photo-1494790108755-2616c5e2d4d2?w=400&h=500&fit=crop",
+    before: "https://cdn.pixabay.com/photo/2018/01/03/19/54/fashion-3059143_1280.jpg?w=400&h=500&fit=crop",
     after: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=500&fit=crop",
     category: "3D"
   },
@@ -186,7 +186,7 @@ const TESTIMONIALS = [
   {
     name: "Sarah Johnson",
     role: "Content Creator",
-    avatar: "https://images.unsplash.com/photo-1494790108755-2616c5e2d4d2?w=64&h=64&fit=crop&crop=face",
+    avatar: "https://cdn.pixabay.com/photo/2018/01/03/19/54/fashion-3059143_1280.jpg?w=64&h=64&fit=crop&crop=face",
     content: "TwinkleFace transformed my social media presence! The AI-generated portraits are incredibly realistic and professional.",
     rating: 5
   },
@@ -612,21 +612,11 @@ const InfiniteMasonryGrid = ({ items }: { items: MasonryItem[] }) => {
 }
 
 export default function HomeContent(): React.ReactElement {
-  const [currentBg, setCurrentBg] = useState(0)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [currentExample, setCurrentExample] = useState(0)
-  const [processStep, setProcessStep] = useState(0)
-  const [stats, setStats] = useState({ photos: 0, users: 0, styles: 0, rating: 0 })
   const [masonryItems, setMasonryItems] = useState(MASONRY_IMAGES)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
 
-  // Auto-rotate hero background
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentBg((prev) => (prev + 1) % HERO_BACKGROUNDS.length)
-    }, 5000)
-    return () => clearInterval(interval)
-  }, [])
 
   // Auto-rotate testimonials
   useEffect(() => {
@@ -636,13 +626,6 @@ export default function HomeContent(): React.ReactElement {
     return () => clearInterval(interval)
   }, [])
 
-  // Auto-rotate process steps
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setProcessStep((prev) => (prev + 1) % PROCESS_STEPS.length)
-    }, 3000)
-    return () => clearInterval(interval)
-  }, [])
 
   // Auto-load more masonry items
   useEffect(() => {
@@ -663,37 +646,6 @@ export default function HomeContent(): React.ReactElement {
     return () => clearInterval(interval)
   }, [])
 
-  // Animate statistics on mount
-  useEffect(() => {
-    const animateStats = () => {
-      const targetStats = { photos: 100000, users: 50000, styles: 6, rating: 4.9 }
-      const duration = 2000
-      const steps = 60
-      const stepDuration = duration / steps
-
-      let currentStep = 0
-      const interval = setInterval(() => {
-        const progress = currentStep / steps
-        const easeOut = 1 - Math.pow(1 - progress, 3)
-
-        setStats({
-          photos: Math.floor(targetStats.photos * easeOut),
-          users: Math.floor(targetStats.users * easeOut),
-          styles: Math.floor(targetStats.styles * easeOut),
-          rating: Math.min(targetStats.rating * easeOut, targetStats.rating)
-        })
-
-        currentStep++
-        if (currentStep > steps) {
-          clearInterval(interval)
-          setStats(targetStats)
-        }
-      }, stepDuration)
-    }
-
-    const timer = setTimeout(animateStats, 500)
-    return () => clearTimeout(timer)
-  }, [])
 
   const nextExample = () => {
     setCurrentExample((prev) => (prev + 1) % BEFORE_AFTER_EXAMPLES.length)
