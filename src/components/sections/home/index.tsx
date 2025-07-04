@@ -36,28 +36,6 @@ const StyleCarousel = ({ style, cardHeight }: {
 }
 
 
-const HERO_BACKGROUNDS = [
-  {
-    image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=1920&h=1080&fit=crop",
-    title: "Professional AI Headshots",
-    subtitle: "Studio-quality portraits in minutes"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1920&h=1080&fit=crop",
-    title: "Anime Style Avatars",
-    subtitle: "Transform into your favorite anime character"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=1920&h=1080&fit=crop",
-    title: "Abstract Art Portraits",
-    subtitle: "Artistic expressions beyond reality"
-  },
-  {
-    image: "https://images.unsplash.com/photo-1549317336-206569e8475c?w=1920&h=1080&fit=crop",
-    title: "3D Character Models",
-    subtitle: "Realistic 3D transformations"
-  }
-]
 
 // Infinite carousel images - multiple sets for seamless loop
 
@@ -85,7 +63,7 @@ const MASONRY_IMAGES = [
     style: "Surreal Portrait"
   },
   {
-    src: "https://cdn.pixabay.com/photo/2018/01/03/19/54/fashion-3059143_1280.jpg?w=400&h=700&fit=crop",
+    src: "https://cdn.pixabay.com/photo/2024/11/08/05/28/man-9182458_1280.jpg?w=400&h=700&fit=crop",
     height: 350,
     category: "3D",
     title: "3D Character",
@@ -164,7 +142,7 @@ const BEFORE_AFTER_EXAMPLES = [
   },
   {
     title: "3D Character Models",
-    before: "https://cdn.pixabay.com/photo/2018/01/03/19/54/fashion-3059143_1280.jpg?w=400&h=500&fit=crop",
+    before: "https://cdn.pixabay.com/photo/2024/11/08/05/28/man-9182458_1280.jpg?w=400&h=500&fit=crop",
     after: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=500&fit=crop",
     category: "3D"
   },
@@ -186,7 +164,7 @@ const TESTIMONIALS = [
   {
     name: "Sarah Johnson",
     role: "Content Creator",
-    avatar: "https://cdn.pixabay.com/photo/2018/01/03/19/54/fashion-3059143_1280.jpg?w=64&h=64&fit=crop&crop=face",
+    avatar: "https://cdn.pixabay.com/photo/2024/11/08/05/28/man-9182458_1280.jpg?w=64&h=64&fit=crop&crop=face",
     content: "TwinkleFace transformed my social media presence! The AI-generated portraits are incredibly realistic and professional.",
     rating: 5
   },
@@ -236,36 +214,6 @@ const FAQ_DATA = [
   }
 ]
 
-const PROCESS_STEPS = [
-  {
-    step: 1,
-    title: "Upload Your Photo",
-    description: "Choose a high-quality photo with clear lighting",
-    icon: "📸",
-    time: "30 seconds"
-  },
-  {
-    step: 2,
-    title: "Select AI Style",
-    description: "Pick from 6 professional AI transformation styles",
-    icon: "🎨",
-    time: "1 minute"
-  },
-  {
-    step: 3,
-    title: "AI Processing",
-    description: "Our advanced AI analyzes and transforms your photo",
-    icon: "⚡",
-    time: "2-5 minutes"
-  },
-  {
-    step: 4,
-    title: "Download Results",
-    description: "Get your stunning AI-generated photos instantly",
-    icon: "⬇️",
-    time: "Instant"
-  }
-]
 
 
 
