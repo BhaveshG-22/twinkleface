@@ -270,7 +270,7 @@ const TESTIMONIALS = [
     name: "Alex Kim",
     role: "Influencer",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
-    content: "My followers can't believe these are AI-generated! The cartoon style avatars are my new favorite for Instagram.",
+    content: "My followers can&apos;t believe these are AI-generated! The cartoon style avatars are my new favorite for Instagram.",
     rating: 5
   }
 ]
@@ -290,11 +290,11 @@ const FAQ_DATA = [
   },
   {
     question: "Can I use the generated images commercially?",
-    answer: "Yes! All generated images are yours to use for personal and commercial purposes. We don't retain any rights to your transformed photos."
+    answer: "Yes! All generated images are yours to use for personal and commercial purposes. We don&apos;t retain any rights to your transformed photos."
   },
   {
-    question: "What if I'm not satisfied with the results?",
-    answer: "We offer a 30-day money-back guarantee. If you're not happy with your results, contact our support team for a full refund."
+    question: "What if I&apos;m not satisfied with the results?",
+    answer: "We offer a 30-day money-back guarantee. If you&apos;re not happy with your results, contact our support team for a full refund."
   }
 ]
 
@@ -830,13 +830,8 @@ const InfiniteMasonryGrid = ({ items }: { items: MasonryItem[] }) => {
 }
 
 export default function HomeContent({ isCollapsed = false }: HomeContentProps) {
-  const [currentBg, setCurrentBg] = useState(0)
   const [currentTestimonial, setCurrentTestimonial] = useState(0)
   const [currentExample, setCurrentExample] = useState(0)
-  const [stats, setStats] = useState({ photos: 0, users: 0, styles: 0, rating: 0 })
-  const [processStep, setProcessStep] = useState(0)
-  const [qualitySettings, setQualitySettings] = useState([80])
-  const [isPlaying, setIsPlaying] = useState(false)
   const [masonryItems, setMasonryItems] = useState(MASONRY_IMAGES)
   const [isLoadingMore, setIsLoadingMore] = useState(false)
 
@@ -1032,7 +1027,7 @@ export default function HomeContent({ isCollapsed = false }: HomeContentProps) {
                     type="submit"
                     className="w-full bg-gradient-to-r from-purple-500 via-pink-500 to-red-500 hover:from-purple-600 hover:via-pink-600 hover:to-red-600 text-white py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
                   >
-                    🎨 Let's get your first photo for free
+                    🎨 Let&apos;s get your first photo for free
                   </Button>
 
                   <div className="relative my-4">
@@ -1055,7 +1050,7 @@ export default function HomeContent({ isCollapsed = false }: HomeContentProps) {
 
                   <div className="text-center pt-2">
                     <p className="text-xs text-gray-600">
-                      Already have an account? We'll log you in automatically
+                      Already have an account? We&apos;ll log you in automatically
                     </p>
                   </div>
                 </form>
@@ -1152,7 +1147,7 @@ export default function HomeContent({ isCollapsed = false }: HomeContentProps) {
                   ✨ AI Photo Gallery
                 </h2>
                 <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-                  Let's give you a makeover
+                  Let&apos;s give you a makeover
                 </p>
               </div>
             </div>
@@ -1276,7 +1271,7 @@ export default function HomeContent({ isCollapsed = false }: HomeContentProps) {
 
                   {/* Testimonial Content */}
                   <p className="text-gray-300 text-lg mb-6 italic">
-                    "{TESTIMONIALS[currentTestimonial].content}"
+                    &ldquo;{TESTIMONIALS[currentTestimonial].content}&rdquo;
                   </p>
 
                   {/* User Info */}
