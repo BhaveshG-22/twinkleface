@@ -13,7 +13,7 @@ import { FcGoogle } from "react-icons/fc"
 
 // StyleCarousel component for the Pinterest gallery
 const StyleCarousel = ({ style, cardHeight }: {
-  style: { name: string; image: string; category: string }
+  style: { id: string; title: string; image: string; variations: string[]; color: string; height: string }
   cardHeight: string
 }) => {
   return (
@@ -21,7 +21,7 @@ const StyleCarousel = ({ style, cardHeight }: {
       {/* Main portrait image */}
       <Image
         src={style.image}
-        alt={style.name || "AI generated portrait style"}
+        alt={style.title || "AI generated portrait style"}
         width={400}
         height={500}
         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
@@ -760,8 +760,6 @@ export default function HomeContent(): React.ReactElement {
                   <div className={`group relative ${style.height} rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 shadow-lg hover:shadow-2xl hover:shadow-purple-500/20`}>
                     <StyleCarousel
                       style={style}
-                      isHovered={false}
-                      index={index}
                       cardHeight={style.height}
                     />
 

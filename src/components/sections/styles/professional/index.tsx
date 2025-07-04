@@ -95,7 +95,7 @@ export default function ProfessionalContent({ isCollapsed = false }: Professiona
               'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop',
-              'https://images.unsplash.com/photo-1494790108755-2616c5e2d4d2?w=400&h=600&fit=crop',
+              'https://cdn.pixabay.com/photo/2022/09/02/20/03/man-7428290_1280.jpg',
               'https://images.unsplash.com/photo-1507591064344-4c6ce005b128?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1560087637-bf797bc7796a?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1521119989659-a83eee488004?w=400&h=600&fit=crop',

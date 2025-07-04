@@ -108,7 +108,7 @@ const generatePortraitStyles = (): StyleType[] => {
 const allStyles = generatePortraitStyles()
 
 // Carousel component for style variations
-const StyleCarousel = ({ style, isHovered, index: cardIndex, cardHeight }: StyleCarouselProps) => {
+const DashboardStyleCarousel = ({ style, isHovered, index: cardIndex, cardHeight }: StyleCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0)
 
   // Determine if it's a small card (height-64, height-72)
@@ -166,6 +166,8 @@ interface DashboardContentProps {
 }
 
 export default function DashboardContent({ isCollapsed = false }: DashboardContentProps) {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  
   const featuredSlides = [
     <div key="1" className="h-48 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center text-white">
       <div className="text-center px-2">
@@ -326,11 +328,13 @@ export default function DashboardContent({ isCollapsed = false }: DashboardConte
             <div
               key={style.id}
               className="break-inside-avoid mb-4 w-full"
+              onMouseEnter={() => setHoveredCard(index)}
+              onMouseLeave={() => setHoveredCard(null)}
             >
               <div className={`group relative ${style.height} rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:-translate-y-2 shadow-lg hover:shadow-2xl hover:shadow-purple-500/20`}>
-                <StyleCarousel
+                <DashboardStyleCarousel
                   style={style}
-                  isHovered={false}
+                  isHovered={hoveredCard === index}
                   index={index}
                   cardHeight={style.height}
                 />

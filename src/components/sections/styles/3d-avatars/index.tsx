@@ -100,7 +100,7 @@ export default function ThreeDContent({ isCollapsed = false }: ThreeDContentProp
               'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&h=600&fit=crop',
-              'https://images.unsplash.com/photo-1494790108755-2616c5e2d4d2?w=400&h=600&fit=crop',
+              'https://cdn.pixabay.com/photo/2022/09/02/20/03/man-7428290_1280.jpg',
               'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop',
@@ -125,7 +125,7 @@ export default function ThreeDContent({ isCollapsed = false }: ThreeDContentProp
             const afterImages = [
               'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?w=400&h=600&fit=crop',
-              'https://images.unsplash.com/photo-1494790108755-2616c5e2d4d2?w=400&h=600&fit=crop',
+              'https://cdn.pixabay.com/photo/2022/09/02/20/03/man-7428290_1280.jpg',
               'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=400&h=600&fit=crop',
               'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop',
