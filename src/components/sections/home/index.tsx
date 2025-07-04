@@ -5,25 +5,15 @@ import { Badge } from "@/components/ui/badge"
 import { Compare } from "@/components/ui/compare"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { ChevronLeft, ChevronRight, Star, Users, Zap, Heart, Play, Pause, Volume2, Settings, HelpCircle, Clock, Shield, Award, Eye } from "lucide-react"
+import { ChevronLeft, ChevronRight, Star, HelpCircle, Eye, Play } from "lucide-react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Progress } from "@/components/ui/progress"
-import { Slider } from "@/components/ui/slider"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
-import { InfiniteSlider } from "@/components/ui/infinite-slider-horizontal"
-import { ScrollVelocity } from "@/components/ui/scroll-velocity"
 import Image from "next/image"
 import { FcGoogle } from "react-icons/fc"
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
 
 // StyleCarousel component for the Pinterest gallery
-const StyleCarousel = ({ style, isHovered, index, cardHeight }: {
-  style: any
-  isHovered: boolean
-  index: number
+const StyleCarousel = ({ style, cardHeight }: {
+  style: { name: string; image: string; category: string }
   cardHeight: string
 }) => {
   return (
@@ -91,37 +81,6 @@ const HERO_BACKGROUNDS = [
 ]
 
 // Infinite carousel images - multiple sets for seamless loop
-const CAROUSEL_IMAGES = [
-  // Professional headshots
-  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=400&h=500&fit=crop",
-
-  // Anime/Creative styles
-  "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1580477667995-2b94f01c9516?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1596727147705-61a532a659bd?w=400&h=500&fit=crop",
-
-  // Abstract/Artistic
-  "https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1549317336-206569e8475c?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=500&fit=crop",
-
-  // 3D/Character models
-  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1494790108755-2616c5e2d4d2?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1463453091185-61582044d556?w=400&h=500&fit=crop",
-
-  // Cartoon styles
-  "https://images.unsplash.com/photo-1618336753974-aae8e04506aa?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1531525645387-7f14be1bdbbd?w=400&h=500&fit=crop",
-  "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=500&fit=crop"
-]
 
 // Masonry grid images with varied heights for dynamic layout
 const MASONRY_IMAGES = [
@@ -329,49 +288,6 @@ const PROCESS_STEPS = [
   }
 ]
 
-// Infinite Carousel Component
-const InfiniteCarousel = ({ images, direction = 'left', speed = 60 }: {
-  images: string[],
-  direction?: 'left' | 'right',
-  speed?: number
-}) => {
-  const duplicatedImages = [...images, ...images, ...images] // Triple for smooth infinite loop
-
-  return (
-    <div className="overflow-hidden whitespace-nowrap">
-      <motion.div
-        className="inline-flex gap-4"
-        animate={{
-          x: direction === 'left' ? ['0%', '-33.333%'] : ['-33.333%', '0%']
-        }}
-        transition={{
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: speed,
-            ease: "linear"
-          }
-        }}
-      >
-        {duplicatedImages.map((image, index) => (
-          <div
-            key={index}
-            className="flex-shrink-0 w-48 h-64 rounded-2xl overflow-hidden relative group"
-          >
-            <Image
-              src={image}
-              alt={`Carousel image ${index}`}
-              width={192}
-              height={256}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </div>
-        ))}
-      </motion.div>
-    </div>
-  )
-}
 
 // Remove HeroRotatedGalleryGrid and use the new implementation
 const HERO_BG_IMAGES = [
