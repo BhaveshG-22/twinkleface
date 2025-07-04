@@ -383,8 +383,6 @@ const HERO_BG_IMAGES = [
   },
 ];
 
-const velocities = [2, -1.5, 1, -0.8, 0.5];
-const ROWS = 5;
 
 const combinedImages = [
   "https://images.unsplash.com/photo-1529218402470-5dec8fea0761?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGFkfGVufDB8fDB8fHww",
